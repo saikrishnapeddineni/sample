@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="text-center text-success">Create Account</h1>
+   <div class ='row'>
+      <div class="col-lg-6 mx-auto border border-black m-3" >
+      <form class="m-3 border" action="/signup" method="POST">
+   {% if error %}
+          <div class="alert alert-danger">
+              {{error}}
+
+          </div>
+       {% endif%}
+       {% csrf_token%}
+   <div class="form-group">
+       <label>FirstName</label>
+       <input type="text" class="form-control" name="fn" value="{{values.first_name}}">
+   </div>
+   <div class="form-group">
+       <label>LastName</label>
+       <input type="text" class="form-control" name="ln" value="{{values.last_name}}">
+   </div>
+    <div class="form-group">
+       <label>Email</label>
+       <input type="email" class="form-control" name="email" value="{{values.email}}">
+   </div>
+    <div class="form-group">
+       <label>Mobile Number</label>
+       <input type="number" class="form-control" name="phone" value="{{values.mobile}}">
+   </div>
+       <div class="form-group">
+       <label>Password</label>
+       <input type="password" class="form-control" name="password">
+   </div>
+   <button class="btn btn-outline-info m-2" >SignUp</button>
+      </form>
+      </div>
+   </div>
+</div>
+{% endblock %}
